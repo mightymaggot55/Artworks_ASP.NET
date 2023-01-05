@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\Artworks_ASP.NET.props" />
+</Project>

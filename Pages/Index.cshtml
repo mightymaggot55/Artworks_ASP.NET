@@ -1,0 +1,270 @@
+﻿@page
+@model IndexModel
+@{
+    Validation.RequireField("EnquiryNo", "You must enter a Enquiry No");
+    Validation.RequireField("EnquiryIssueNo", "You must enter a Issue No");
+    ViewData["Title"] = "Home page";
+    
+    var EnquiryNo = "";
+    var EnquiryIssueNo = "";
+    var RequestedDate = "";
+    var RequestedBy = "";
+    var Customer = "";
+    var CustomerContact = "";
+    var CustomerPartNo = "";
+    var ArtworkType = "";
+    var CustomerDescription = "";
+    var ProductID = "";
+    var StrokeNo = "";
+    var ComponentSpec = "";
+    var ComponentNeck = "";
+    var ComponentTool = "";
+    var ColourPrefixOne = "";
+    var ColourPrefixTwo = "";
+    var Colour = "";
+    var MasterbatchReference = "";
+    var ScreenPassesRequested = "";
+    var FoilPassesRequested = "";
+    var DecorationStartDate = "";
+    var SalesNotes = "";
+
+    if (IsPost && Validation.IsValid())
+    {
+        var db = Database.Open();
+        var insertSQL = "INSERT INTO Artworks (EnquiryNo, EnquiryIssueNo) VALUES (@0, @1, @2)";
+        db.Execute(insertSQL, EnquiryNo, EnquiryIssueNo, RequestedDate, RequestedBy, Customer, 
+            CustomerContact, CustomerPartNo, ArtworkType, CustomerDescription, ProductID, StrokeNo, ComponentSpec,
+        ComponentNeck, ComponentTool, ColourPrefixOne, ColourPrefixTwo, Colour, MasterbatchReference, ScreenPassesRequested,
+        FoilPassesRequested, DecorationStartDate, SalesNotes);
+
+        //Response.Redirect("/Movies");
+
+        EnquiryNo = Request.Form["EnquiryNo"];
+        EnquiryIssueNo = Request.Form["EnquiryIssueNo"];
+        RequestedDate = Request.Form["RequestedDate"];
+        RequestedBy = Request.Form["RequestedBy"];
+        Customer = Request.Form["Customer"];
+        CustomerContact = Request.Form["CustomerContact"];
+        CustomerPartNo = Request.Form["CustomerPartNo"];
+        ArtworkType = Request.Form["ArtworkType"];
+        CustomerDescription = Request.Form["CustomerDescription"];
+        ProductID = Request.Form["ProductId"];
+        StrokeNo = Request.Form["StrokeNo"];
+        ComponentSpec = Request.Form["ComponentSpec"];
+        ComponentNeck = Request.Form["ComponentNeck"];
+        ComponentTool = Request.Form["ComponentTool"];
+        ColourPrefixOne = Request.Form["ColourPrefixOne"];
+        ColourPrefixTwo = Request.Form["ColourPrefixTwo"];
+        Colour = Request.Form["Colour"];
+        MasterbatchReference = Request.Form["MasterbatchReference"];
+        ScreenPassesRequested = Request.Form["ScereenPassesRequestede"];
+        FoilPassesRequested = Request.Form["FoilPassesRequested"];
+        DecorationStartDate = Request.Form["DecorationStartDate"];
+        SalesNotes = Request.Form["SalesNotes"];
+    }
+
+}
+
+<div class="text-center">
+    <h1 class="display-4">Artwork Home Page</h1>
+    <p><a href="https://docs.microsoft.com/aspnet/core">Create a New Artwork Enquiry</a></p>
+    <form method="post">
+        <fieldset>
+            <div class="txt-defaults">
+                <div class="form">
+                    <div class="row">
+                        <div class="col-label">
+                            <label for="Enquriy Reference">Enquiry Reference</label>
+                        </div>
+                        <div class="col">
+                            <div class="col-txtbox-1">
+                                <input class="txtbox-1" type="text" id="Enquiry_No" value="@Request.Form["EnquiryNo"]" />
+                                @Html.ValidationMessage("EnquiryNo")
+                                <label>/</label>
+                                <input class="txtbox-1" type="text" id="Enquiry_Issue_No" value="@Request.Form["EnquiryIssueNo"]" />
+                                @Html.ValidationMessage("EnquiryIssueNo")
+                            </div>
+                        </div>
+                        <div class="col-label">
+                        </div>
+                        <div class="col">
+                            <div class="col-txtbox-1">
+                            </div>
+                        </div>
+                    </div>
+                    <br /><br />
+
+                    <div class="row">
+                        <div class="col-label">
+                            <label for="RequestedDate">Requested Date</label>
+                        </div>
+                        <div class="col">
+                            <div class="col-txtbox-1">
+                                <input class="txtbox-2" type="date" id="RequestedDate" value="@Request.Form["RequestedDate"]" />
+                            </div>
+                        </div>
+                        <div class="col-label">
+                            <label for="RequestedBy">Requested By</label>
+                        </div>
+                        <div class="col">
+                            <div class="col-txtbox-1">
+                                <input class="txtbox-2" type="text" id="RequestedBy" value="@Request.Form["RequestedBy"]" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-label">
+                            <label for="Customer">Customer</label>
+                        </div>
+                        <div class="col">
+                            <div class="col-txtbox-1">
+                                <input class="txtbox-2" type="text" id="Customer" value="@Request.Form["Customer"]" />
+                            </div>
+                        </div>
+                        <div class="col-label">
+                            <label for="CustomerContact">Customer Contact</label>
+                        </div>
+                        <div class="col">
+                            <div class="col-txtbox-1">
+                                <input class="txtbox-2" type="text" id="CustomerContact" value="@Request.Form["CustomerContact"]" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-label">
+                            <label for="CustomerPartNo">Customer Part No</label>
+                        </div>
+                        <div class="col">
+                            <div class="col-txtbox-1">
+                                <input class="txtbox-2" type="text" id="CustomerPartNo" value="@Request.Form["CustomerPartNo"]" />
+                            </div>
+                        </div>
+                        <div class="col-label">
+                            <label for="ArtworkType">Artwork Type</label>
+                        </div>
+                        <div class="col">
+                            <div class="col-txtbox-1">
+                                <input class="txtbox-2" type="text" id="ArtworkType" value="@Request.Form["ArtworkType"]" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-label">
+                            <label for="CustomerDescription">Customer Description</label>
+                        </div>
+                        <div class="col">
+                            <div class="col-txtbox-1">
+                                <input class="txtbox-2" type="text" id="CustomerDescription" value="@Request.Form["CustomerDescription"]" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-label">
+                            <label for="SalesSpec_ProductNo">Sales Spec</label>
+                        </div>
+                        <div class="col">
+                            <div class="col-txtbox-1">
+                                <input class="txtbox-1" type="text" id="SalesSpec_ProductNo" value="@Request.Form["ProductNo"]" />
+                                <label>/</label>
+                                <input class="txtbox-1" type="text" id="SalesSpec_StrokeNo" value="@Request.Form["StrokeNo"]" />
+                            </div>
+                        </div>
+                        <div class="col-label">
+                            <label for="ComponentSpec">Component Specification</label>
+                        </div>
+                        <div class="col">
+                            <div class="col-txtbox-1">
+                                <input class="txtbox-3" type="text" id="ComponentSpec" value="@Request.Form["ComponentSpec"]" />
+                                <input class="txtbox-3" type="text" id="ComponentNeck" value="@Request.Form["ComponentNeck"]" />
+                                <input class="txtbox-3" type="text" id="ComponentTool" value="@Request.Form["ComponentTool"]" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-label">
+                            <label for="ComponentColour">Component Colour</label>
+                        </div>
+                        <div class="col">
+                            <div class="col-txtbox-1">
+                                <input class="txtbox-3" type="text" id="ColourPrefixOne" value="@Request.Form["ColourPrefixOne"]" />
+                                <input class="txtbox-3" type="text" id="ColourPrefixTwo" value="@Request.Form["ColourPrefixTwo"]" />
+                                <input class="txtbox-3" type="text" id="Colour" value="@Request.Form["Colour"]" />
+                            </div>
+                        </div>
+                        <div class="col-label">
+                            <label for="MastbatchReference">Masterbatch Reference</label>
+                        </div>
+                        <div class="col">
+                            <div class="col-txtbox-1">
+                                <input class="txtbox-2" type="text" id="MasterbatchReference" value="@Request.Form["MasterbatchReference"]" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-label">
+                            <label for="ScreenPassesRequested">Screen Passes Requested</label>
+                        </div>
+                        <div class="col">
+                            <div class="col-txtbox-1">
+                                <input class="txtbox-2" type="text" id="ScreenPassesRequested" value="@Request.Form["ScreenPassesRequested"]" />
+                            </div>
+                        </div>
+                        <div class="col-label">
+                            <label for="FoilPassesRequested">Foil Passes Requested</label>
+                        </div>
+                        <div class="col">
+                            <div class="col-txtbox-1">
+                                <input class="txtbox-2" type="text" id="FoilPassesRequested" value="@Request.Form["FoilPassesRequested"]" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-label">
+                            <label for="BatchNo">Batch No</label>
+                        </div>
+                        <div class="col">
+                            <div class="col-txtbox-1">
+                                <input class="txtbox-2" type="text" id="BatchNo" value="@Request.Form["BatchNo"]" />
+                            </div>
+                        </div>
+                        <div class="col-label">
+                            <label for="DecorationStartDate">Decoration Start Date</label>
+                        </div>
+                        <div class="col">
+                            <div class="col-txtbox-1">
+                                <input class="txtbox-2" type="date" id="DecorcationStartDate" value="@Request.Form["DecorationStartDate"]" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-label">
+                            <label for="SalesNotes">Sales Notes</label>
+                        </div>
+                        <div class="col">
+                            <div class="col-txtbox-1">
+                                <input class="txtbox-2" type="text" id="SalesNotes" value="@Request.Form["SalesNotes"]" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-txtbox-1">
+                        </div>
+                        <div class="col">
+                            <div class="col-txtbox-1">
+                                <button>Save Changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

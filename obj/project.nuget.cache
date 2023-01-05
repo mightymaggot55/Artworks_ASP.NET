@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "eaS3lbWjFsvBAPzuww6sO27wD8F+AK5alQbgMS4i42nTbRLTQay6rbSlABZvdhYD3nepAyrgGf3EB8oTwUDFvw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Michael Raw\\Documents\\Projects\\ASP.NET\\Artworks_ASP.NET\\Artworks_ASP.NET.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Michael Raw\\.nuget\\packages\\microsoft.aspnetcore.authentication.negotiate\\6.0.10\\microsoft.aspnetcore.authentication.negotiate.6.0.10.nupkg.sha512",
+    "C:\\Users\\Michael Raw\\.nuget\\packages\\microsoft.aspnetcore.connections.abstractions\\6.0.10\\microsoft.aspnetcore.connections.abstractions.6.0.10.nupkg.sha512",
+    "C:\\Users\\Michael Raw\\.nuget\\packages\\microsoft.extensions.features\\6.0.10\\microsoft.extensions.features.6.0.10.nupkg.sha512",
+    "C:\\Users\\Michael Raw\\.nuget\\packages\\system.directoryservices.protocols\\6.0.1\\system.directoryservices.protocols.6.0.1.nupkg.sha512",
+    "C:\\Users\\Michael Raw\\.nuget\\packages\\system.io.pipelines\\6.0.3\\system.io.pipelines.6.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
