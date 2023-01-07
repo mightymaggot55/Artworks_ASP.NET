@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
+
 namespace Artworks_ASP.NET.Pages
 {
     public class EnquiryModel : PageModel

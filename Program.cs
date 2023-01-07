@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Authentication.Negotiate;
+using System.Data.SqlClient;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
