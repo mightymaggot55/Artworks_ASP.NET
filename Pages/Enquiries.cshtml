@@ -12,32 +12,62 @@
 
 <table>
     <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Phone</th>
-        <th>Address</th>
+        <th>Enquiry Reference</th>
+        <th>Enquiry No</th>
+        <th>Issue No</th>
+        <th>Enquiry Status</th>
+        <th>Review Date</th>
+        <th>Barcode Orientation</th>
+        <th>Barcode Size</th>
+        <th>Barcode Colour</th>
+        <th>Barcode Guarentee</th>
+        <th>Barcode Guarentee</th>
+        <th>Artworker</th>
+        <th>Supplied Artwork Location</th>
+        <th>Confirmed Artwork Type</th>
+        <th>Required Screen Passes</th>
+        <th>Required Block Passes</th>
+        <th>Screen Passes Chargable</th>
+        <th>Foil Passes Chargable</th>
+        <th>Artwork Type</th>
+        <th>Requested Date</th>
     </tr>
 
     @{
-        var connectionString = "Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password=myPassword;";
+        var connectionString = "Server=DESKTOP-CBC069A;Database=Artworks;";
         using (var connection = new SqlConnection(connectionString))
         {
             connection.Open();
-            var command = new SqlCommand("SELECT * FROM Customers", connection);
+            var command = new SqlCommand("SELECT * FROM [Artworks].[dbo].[Enquiries]", connection);
             using (var reader = command.ExecuteReader())
             {
                 while (reader.Read())
                 {
                     <tr>
-                        <td>@reader["ID"]</td>
-                        <td>@reader["Name"]</td>
-                        <td>@reader["Email"]</td>
-                        <td>@reader["Phone"]</td>
-                        <td>@reader["Address"]</td>
+                        <td>@reader["Enquiry Reference"]</td>
+                        <td>@reader["Enquiry No"]</td>
+                        <td>@reader["Issue No"]</td>
+                        <td>@reader["Enquiry Status"]</td>
+                        <td>@reader["Review Date"]</td>
+                        <td>@reader["Barcode Orientation"]</td>
+                        <td>@reader["Barcode Size"]</td>
+                        <td>@reader["Barcode Colour"]</td>
+                        <td>@reader["Barcode Guarentee"]</td>
+                        <td>@reader["Barcode Guarentee"]</td>
+                        <td>@reader["Artworker"]</td>
+                        <td>@reader["Supplied Artwork Location"]</td>
+                        <td>@reader["Confirmed Artwork Type"]</td>
+                        <td>@reader["Required Screen Passes"]</td>
+                        <td>@reader["Required Block Passes"]</td>
+                        <td>@reader["Screen Passes Chargable"]</td>
+                        <td>@reader["Foil Passes Chargable"]</td>
+                        <td>@reader["Artwork Type"]</td>
+                        <td>@reader["Requested Date"]</td>
                     </tr>
+
                 }
             }
+            connection.Close();
         }
     }
 </table>
