@@ -1,6 +1,7 @@
 ﻿@page
 @using Microsoft.Data.SqlClient;
 
+
 @model EnquiryModel
 @{
     ViewData["Title"] = "Enquiry Requests";
@@ -34,8 +35,7 @@
     </tr>
 
     @{
-        var connectionString = "Server=DESKTOP-CBC069A;Database=Artworks;";
-        using (var connection = new SqlConnection(connectionString))
+        using (var connection = new SqlConnection(ConnectionManager.ConnectionString))
         {
             connection.Open();
             var command = new SqlCommand("SELECT * FROM [Artworks].[dbo].[Enquiries]", connection);
