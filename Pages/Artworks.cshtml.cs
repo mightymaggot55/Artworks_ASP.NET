@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using static Artworks_ASP.NET.ConnectionManager;
 
 namespace Artworks_ASP.NET.Pages
 {

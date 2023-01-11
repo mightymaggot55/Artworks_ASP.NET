@@ -8,35 +8,32 @@
 <h1>@ViewData["Title"]</h1>
 
 <p>This page is used to view Accepted Artworks</p>
+<div class="Art_Table">
+    <table>
+        <tr>
+            <th>Artwork Reference</th>
+            <th>Enquiry No</th>
+            <th>Issue No</th>
+        </tr>
 
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Phone</th>
-        <th>Address</th>
-    </tr>
-
-    @{
-        var connectionString = "Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password=myPassword;";
-        using (var connection = new SqlConnection(connectionString))
-        {
-            connection.Open();
-            var command = new SqlCommand("SELECT * FROM ", connection);
-            using (var reader = command.ExecuteReader())
+        @{
+            using (var connection = new SqlConnection(ConnectionManager.ConnectionString))
             {
-                while (reader.Read())
+                connection.Open();
+                var command = new SqlCommand("SELECT * FROM  [Live Artworks]", connection);
+                using (var reader = command.ExecuteReader())
                 {
-                    <tr>
-                        <td>@reader["ID"]</td>
-                        <td>@reader["Name"]</td>
-                        <td>@reader["Email"]</td>
-                        <td>@reader["Phone"]</td>
-                        <td>@reader["Address"]</td>
-                    </tr>
+                    while (reader.Read())
+                    {
+                        <tr>
+                            <td>@reader["Artwork Reference"]</td>
+                            <td>@reader["Enquiry No"]</td>
+                            <td>@reader["Issue No"]</td>
+                        </tr>
+                    }
                 }
             }
         }
-    }
-</table>
+    </table>
+
+</div>

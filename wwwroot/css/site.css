@@ -22,12 +22,6 @@ body {
     border: 1px solid #ccc;
     overflow: hidden;
     padding: 11px;
-    width: 60%;
-}
-
-.col {
-    float: left;
-    width: 50%;
 }
 
 .col-label {
@@ -35,10 +29,6 @@ body {
     width: 20%;
 }
 
-.col-txtbox-1 {
-    width: 100%;
-    height: 90%;
-}
 
 col-txtbox-2{
     float: left;
@@ -62,21 +52,21 @@ col-txtbox-2{
 }
 
 .txt-defaults {
-    font-size: 10px;
-}
-
-div.form{
-    display:block;
-    text-align:center;
-}
-
-form{
-    margin-left: auto;
-    margin-right:auto;
-    text-align:left;
+    font-size: 16px;
 }
 
 .Enq_Table{
+    font-size: 10px;
+    float: left;
+}
+
+.Ori_Table 
+{
+    font-size: 10px;
+    float: left;
+}
+
+.Art_Table {
     font-size: 10px;
     float: left;
 }
